@@ -1,0 +1,9 @@
+main: fr.sandro642.github.Main
+version: 1.0.0
+api-version: 1.16
+author: Sandro642
+name: MenuGui
+commands:
+  guibypass:
+    description: Gui desactivate or activate
+    permission: guibypass
