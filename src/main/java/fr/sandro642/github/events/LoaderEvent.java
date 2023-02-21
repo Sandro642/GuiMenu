@@ -86,7 +86,9 @@ public class LoaderEvent implements Listener {
          } else {
              e.setCancelled(true);
 
-             if ()
+             if (it.getType() == Material.COMPASS && it.hasItemMeta() && it.getItemMeta().getDisplayName().equalsIgnoreCase("§eMenu des mini-jeux")) {
+                 GuiLoader.compass(p);
+             }
          }
      }
 }
