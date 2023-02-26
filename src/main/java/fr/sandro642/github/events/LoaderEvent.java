@@ -73,22 +73,4 @@ public class LoaderEvent implements Listener {
              e.setCancelled(true);
          }
      }
-
-     @EventHandler
-    public void onInteract(PlayerInteractEvent e) {
-         // Code of HashMap
-         Player p = e.getPlayer();
-         Action action = e.getAction();
-         ItemStack it = e.getItem();
-
-         if (Main.getInstance().moderateurs.contains(p.getUniqueId())) {
-             e.setCancelled(false);
-         } else {
-             e.setCancelled(true);
-
-             if (it.getType() == Material.COMPASS && it.hasItemMeta() && it.getItemMeta().getDisplayName().equalsIgnoreCase("§eMenu des mini-jeux")) {
-                 GuiLoader.compass(p);
-             }
-         }
-     }
 }
