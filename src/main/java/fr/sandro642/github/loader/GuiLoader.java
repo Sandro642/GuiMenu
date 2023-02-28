@@ -35,7 +35,7 @@ public class GuiLoader {
         ItemStack head = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta headMeta = (SkullMeta) head.getItemMeta();
         headMeta.setOwner(p.getName());
-        headMeta.setDisplayName("§eProfile §2(Clique droit)");
+        headMeta.setDisplayName("§eProfil §2(Clique droit)");
         head.setItemMeta(headMeta);
         p.getInventory().setItem(1, head);
 
@@ -74,9 +74,16 @@ public class GuiLoader {
     }
 
     public static void profile(Player p) {
-        Inventory profile = Bukkit.createInventory(null, 26, "§eVotre Profil");
+        Inventory profile = Bukkit.createInventory(null, 54, "§eVotre Profil");
 
         p.updateInventory();
         p.openInventory(profile);
+    }
+
+    public static void lobbys(Player p) {
+        Inventory lobbys = Bukkit.createInventory(null, 54, "§eSélecteur de lobby");
+
+        p.updateInventory();
+        p.openInventory(lobbys);
     }
 }

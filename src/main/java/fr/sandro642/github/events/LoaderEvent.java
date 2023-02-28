@@ -9,10 +9,16 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.Plugin;
+
+import static org.bukkit.Bukkit.getServer;
 
 public class LoaderEvent implements Listener {
+
+    private boolean playersHidden = false;
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
@@ -71,6 +77,60 @@ public class LoaderEvent implements Listener {
              e.setCancelled(false);
          } else {
              e.setCancelled(true);
+         }
+     }
+
+     @EventHandler
+     public void OnPick(BlockPlaceEvent e) {
+            Player p = e.getPlayer();
+
+            if (Main.getInstance().moderateurs.contains(p.getUniqueId())){
+                e.setCancelled(false);
+            } else {
+                e.setCancelled(true);
+            }
+     }
+
+     @EventHandler
+    public void onInteract(PlayerInteractEvent e) {
+         Player p = e.getPlayer();
+         ItemStack it = e.getItem();
+         Action a = e.getAction();
+
+         if (it == null) return;
+         if (it.getType() == Material.COMPASS && it.getItemMeta().getDisplayName().equals("§eCarte des mini-jeux §2(Clique droit)")) {
+             if (a == Action.RIGHT_CLICK_AIR || a == Action.RIGHT_CLICK_BLOCK) {
+                 p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
+                 GuiLoader.compass(p);
+             }
+         }
+
+         if (it.getType() == Material.CHEST && it.getItemMeta().getDisplayName().equals("§eMenu des cosmetiques §2(Clique droit)")) {
+             if (a == Action.RIGHT_CLICK_AIR || a == Action.RIGHT_CLICK_BLOCK) {
+                 p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
+                 GuiLoader.cosmetics(p);
+             }
+         }
+
+         if (it.getType() == Material.NETHER_STAR && it.getItemMeta().getDisplayName().equals("§eSélecteur de lobby §2(Clique droit)")) {
+             if (a == Action.RIGHT_CLICK_AIR || a == Action.RIGHT_CLICK_BLOCK) {
+                 p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
+                 GuiLoader.lobbys(p);
+             }
+         }
+
+         if (it.getType() == Material.GRAY_DYE && it.getItemMeta().getDisplayName().equals("§eCacher les joueurs §2(Clique droit)")) {
+             if (a == Action.RIGHT_CLICK_AIR || a == Action.RIGHT_CLICK_BLOCK) {
+                 p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
+
+             }
+         }
+
+         if (it.getType() == Material.PLAYER_HEAD && it.getItemMeta().getDisplayName().equals("§eProfil §2(Clique droit)")) {
+             if (a == Action.RIGHT_CLICK_AIR || a == Action.RIGHT_CLICK_BLOCK) {
+                 p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
+                 GuiLoader.profile(p);
+             }
          }
      }
 }

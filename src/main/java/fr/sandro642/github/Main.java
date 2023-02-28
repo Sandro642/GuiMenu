@@ -30,4 +30,9 @@ public class Main extends JavaPlugin {
     public static Main getInstance() {
         return instance;
     }
+
+    @Override
+    public void onDisable() {
+        System.out.println("Plugin MenuGui désactivé.");
+    }
 }
