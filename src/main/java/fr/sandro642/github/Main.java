@@ -3,7 +3,9 @@ package fr.sandro642.github;
 import fr.sandro642.github.commands.Guicmd;
 import fr.sandro642.github.events.LoaderEvent;
 import fr.sandro642.github.utils.PlayerManager;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.messaging.PluginMessageListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,6 +27,9 @@ public class Main extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new LoaderEvent(), this);
         getCommand("guibypass").setExecutor(new Guicmd());
+
+        this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+        this.getServer().getMessenger().registerIncomingPluginChannel((Plugin) this, "BungeeCord", (PluginMessageListener) new LoaderEvent());
     }
 
     public static Main getInstance() {

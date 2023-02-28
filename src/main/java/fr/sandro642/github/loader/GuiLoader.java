@@ -2,6 +2,7 @@ package fr.sandro642.github.loader;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -59,6 +60,36 @@ public class GuiLoader {
     public static void compass(Player p) {
 
         Inventory compass = Bukkit.createInventory(null, 54, "§eMenu des mini-jeux");
+
+        ItemStack skywars = new ItemStack(Material.DIAMOND_AXE);
+        ItemMeta skywarsm = skywars.getItemMeta();
+        skywarsm.setDisplayName("§eSkyWars §2(Clique droit)");
+        skywarsm.setLore(Arrays.asList("§eRejoindre le serveur SkyWars avec clique droit."));
+        skywars.setItemMeta(skywarsm);
+        compass.setItem(0, skywars);
+
+        ItemStack lg = new ItemStack(Material.DIAMOND_SWORD);
+        ItemMeta lgm = lg.getItemMeta();
+        lgm.setDisplayName("§eLoup-Garou §2(Clique droit)");
+        lgm.setLore(Arrays.asList("§eRejoindre le serveur Loup-Garou avec clique droit."));
+        lg.setItemMeta(lgm);
+        compass.setItem(1, lg);
+
+        ItemStack dac = new ItemStack(Material.BARRIER);
+        ItemMeta dacm = dac.getItemMeta();
+        dacm.setDisplayName("§eDé à coudre §2(Clique droit)");
+        dacm.setLore(Arrays.asList("§eRejoindre le serveur Dé à coudre avec clique droit."));
+        dac.setItemMeta(dacm);
+        compass.setItem(2, dac);
+
+        ItemStack hg = new ItemStack(Material.DIAMOND_PICKAXE);
+        ItemMeta hgm = hg.getItemMeta();
+        hgm.setDisplayName("§eHungerGames §2(Clique droit)");
+        hgm.setLore(Arrays.asList("§eRejoindre le serveur HungerGames avec clique droit."));
+        hg.setItemMeta(hgm);
+        compass.setItem(3, hg);
+
+
 
 
 
