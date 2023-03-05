@@ -36,11 +36,6 @@
             <version>1.16.5-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.github.Sandro642</groupId>
-            <artifactId>VaultUnplifed</artifactId>
-            <version>0f82cc77</version>
-        </dependency>
     </dependencies>
 
 </project>
