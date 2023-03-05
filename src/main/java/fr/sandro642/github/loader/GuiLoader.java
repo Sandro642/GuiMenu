@@ -1,5 +1,6 @@
 package fr.sandro642.github.loader;
 
+import fr.sandro642.github.VaultUnplifed;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Item;
@@ -105,7 +106,15 @@ public class GuiLoader {
     }
 
     public static void profile(Player p) {
+        VaultUnplifed vaultUnplifed = new VaultUnplifed();
         Inventory profile = Bukkit.createInventory(null, 54, "§eVotre Profil");
+
+        ItemStack head = new ItemStack(Material.PLAYER_HEAD);
+        SkullMeta headMeta = (SkullMeta) head.getItemMeta();
+        headMeta.setOwner(p.getName());
+        headMeta.setDisplayName("§eVous avez :§a" + vaultUnplifed.getBalance(p) + "$");
+        head.setItemMeta(headMeta);
+        profile.setItem(0, head);
 
         p.updateInventory();
         p.openInventory(profile);

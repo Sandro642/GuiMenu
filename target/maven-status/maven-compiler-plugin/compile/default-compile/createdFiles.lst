@@ -1,5 +1,5 @@
 fr\sandro642\github\Main.class
 fr\sandro642\github\utils\PlayerManager.class
+fr\sandro642\github\utils\BungeeConnect.class
 fr\sandro642\github\events\LoaderEvent.class
-fr\sandro642\github\loader\GuiLoader.class
 fr\sandro642\github\commands\Guicmd.class

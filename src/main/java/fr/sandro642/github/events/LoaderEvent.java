@@ -4,6 +4,7 @@ import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 import fr.sandro642.github.Main;
 import fr.sandro642.github.loader.GuiLoader;
+import fr.sandro642.github.utils.BungeeConnect;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -146,13 +147,7 @@ public class LoaderEvent implements Listener {
         if (it.getType() == Material.DIAMOND_AXE && it.getItemMeta().getDisplayName().equals("§eSkyWars §2(Clique droit")) {
             p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
             p.closeInventory();
-            ByteArrayDataOutput out = ByteStreams.newDataOutput();
-
-            out.writeUTF("Connect");
-
-            out.writeUTF("sw1");
-
-            p.sendPluginMessage(Main.getInstance(), "BungeeCord", out.toByteArray());
+            BungeeConnect.connect(p, "sw1");
         }
     }
 
