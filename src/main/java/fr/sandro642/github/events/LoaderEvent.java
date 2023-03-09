@@ -149,10 +149,20 @@ public class LoaderEvent implements Listener {
             p.closeInventory();
             BungeeConnect.connect(p, "sw1");
         }
-        if( it.getType() == Material.REDSTONE && it.getItemMeta().getDisplayName().equals("§eLoup-Garou §2(Clique droit)")) {
+        if ( it.getType() == Material.REDSTONE && it.getItemMeta().getDisplayName().equals("§eLoup-Garou §2(Clique droit)")) {
             p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
             p.closeInventory();
             BungeeConnect.connect(p, "lg1");
+        }
+        if (it.getType() == Material.BARRIER && it.getItemMeta().getDisplayName().equals("§eDé à coudre §2(Clique droit)")) {
+            p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
+            p.closeInventory();
+            BungeeConnect.connect(p, "dac1");
+        }
+        if (it.getType() == Material.DIAMOND_SWORD && it.getItemMeta().getDisplayName().equals("§eHungerGames §2(Clique droit)")) {
+            p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
+            p.closeInventory();
+            BungeeConnect.connect(p, "hg1");
         }
     }
 
