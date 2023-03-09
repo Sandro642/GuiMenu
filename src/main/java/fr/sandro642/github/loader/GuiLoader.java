@@ -1,5 +1,6 @@
 package fr.sandro642.github.loader;
 
+import fr.sandro642.github.utils.Vault;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -104,14 +105,15 @@ public class GuiLoader {
     }
 
     public static void profile(Player p) {
+        Vault vault = new Vault();
         Inventory profile = Bukkit.createInventory(null, 54, "§eVotre Profil");
 
         ItemStack head = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta headMeta = (SkullMeta) head.getItemMeta();
         headMeta.setOwner(p.getName());
-        headMeta.setDisplayName("§eVous avez :§a");
+        headMeta.setDisplayName("§eVous avez :§a" + vault.getBalance(p) + "$");
         head.setItemMeta(headMeta);
-        profile.setItem(0, head);
+        profile.setItem(22, head);
 
         p.updateInventory();
         p.openInventory(profile);
@@ -119,6 +121,41 @@ public class GuiLoader {
 
     public static void lobbys(Player p) {
         Inventory lobbys = Bukkit.createInventory(null, 54, "§eSélecteur de lobby");
+
+        ItemStack lobby1 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta lobby1m = lobby1.getItemMeta();
+        lobby1m.setDisplayName("§eLobby 1 §2(Clique droit)");
+        lobby1m.setLore(Arrays.asList("§eRejoindre le lobby 1 avec clique droit."));
+        lobby1.setItemMeta(lobby1m);
+        lobbys.setItem(0, lobby1);
+
+        ItemStack lobby2 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta lobby2m = lobby2.getItemMeta();
+        lobby2m.setDisplayName("§eLobby 2 §2(Clique droit)");
+        lobby2m.setLore(Arrays.asList("§eRejoindre le lobby 2 avec clique droit."));
+        lobby2.setItemMeta(lobby2m);
+        lobbys.setItem(1, lobby2);
+
+        ItemStack lobby3 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta lobby3m = lobby3.getItemMeta();
+        lobby3m.setDisplayName("§eLobby 3 §2(Clique droit)");
+        lobby3m.setLore(Arrays.asList("§eRejoindre le lobby 3 avec clique droit."));
+        lobby3.setItemMeta(lobby3m);
+        lobbys.setItem(2, lobby3);
+
+        ItemStack lobby4 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta lobby4m = lobby4.getItemMeta();
+        lobby4m.setDisplayName("§eLobby 4 §2(Clique droit)");
+        lobby4m.setLore(Arrays.asList("§eRejoindre le lobby 4 avec clique droit."));
+        lobby4.setItemMeta(lobby4m);
+        lobbys.setItem(3, lobby4);
+
+        ItemStack lobby5 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta lobby5m = lobby5.getItemMeta();
+        lobby5m.setDisplayName("§eLobby 5 §2(Clique droit)");
+        lobby5m.setLore(Arrays.asList("§eRejoindre le lobby 5 avec clique droit."));
+        lobby5.setItemMeta(lobby5m);
+        lobbys.setItem(4, lobby5);
 
         p.updateInventory();
         p.openInventory(lobbys);
