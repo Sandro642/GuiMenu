@@ -3,6 +3,7 @@ package fr.sandro642.github.utils;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 import fr.sandro642.github.Main;
+import fr.sandro642.github.loader.GuiLoader;
 import org.bukkit.entity.Player;
 
 public class BungeeConnect {
