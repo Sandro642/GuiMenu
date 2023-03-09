@@ -1,14 +1,9 @@
 package fr.sandro642.github;
 
-import com.google.common.io.ByteArrayDataInput;
-import com.google.common.io.ByteStreams;
 import fr.sandro642.github.commands.Guicmd;
 import fr.sandro642.github.events.LoaderEvent;
 import fr.sandro642.github.utils.PlayerManager;
-import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.plugin.messaging.PluginMessageListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
