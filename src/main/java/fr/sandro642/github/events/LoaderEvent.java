@@ -144,10 +144,15 @@ public class LoaderEvent implements Listener {
 
         if (it == null) return;
 
-        if (it.getType() == Material.DIAMOND_AXE && it.getItemMeta().getDisplayName().equals("§eSkyWars §2(Clique droit")) {
+        if (it.getType() == Material.WHITE_WOOL && it.getItemMeta().getDisplayName().equals("§eSkyWars §2(Clique droit")) {
             p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
             p.closeInventory();
             BungeeConnect.connect(p, "sw1");
+        }
+        if( it.getType() == Material.REDSTONE && it.getItemMeta().getDisplayName().equals("§eLoup-Garou §2(Clique droit)")) {
+            p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
+            p.closeInventory();
+            BungeeConnect.connect(p, "lg1");
         }
     }
 

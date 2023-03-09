@@ -1,9 +1,7 @@
 package fr.sandro642.github.loader;
 
-import fr.sandro642.github.VaultUnplifed;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -62,14 +60,14 @@ public class GuiLoader {
 
         Inventory compass = Bukkit.createInventory(null, 54, "§eMenu des mini-jeux");
 
-        ItemStack skywars = new ItemStack(Material.DIAMOND_AXE);
+        ItemStack skywars = new ItemStack(Material.WHITE_WOOL);
         ItemMeta skywarsm = skywars.getItemMeta();
         skywarsm.setDisplayName("§eSkyWars §2(Clique droit)");
         skywarsm.setLore(Arrays.asList("§eRejoindre le serveur SkyWars avec clique droit."));
         skywars.setItemMeta(skywarsm);
         compass.setItem(0, skywars);
 
-        ItemStack lg = new ItemStack(Material.DIAMOND_SWORD);
+        ItemStack lg = new ItemStack(Material.REDSTONE);
         ItemMeta lgm = lg.getItemMeta();
         lgm.setDisplayName("§eLoup-Garou §2(Clique droit)");
         lgm.setLore(Arrays.asList("§eRejoindre le serveur Loup-Garou avec clique droit."));
@@ -83,7 +81,7 @@ public class GuiLoader {
         dac.setItemMeta(dacm);
         compass.setItem(2, dac);
 
-        ItemStack hg = new ItemStack(Material.DIAMOND_PICKAXE);
+        ItemStack hg = new ItemStack(Material.DIAMOND_SWORD);
         ItemMeta hgm = hg.getItemMeta();
         hgm.setDisplayName("§eHungerGames §2(Clique droit)");
         hgm.setLore(Arrays.asList("§eRejoindre le serveur HungerGames avec clique droit."));
@@ -106,13 +104,12 @@ public class GuiLoader {
     }
 
     public static void profile(Player p) {
-        VaultUnplifed vaultUnplifed = new VaultUnplifed();
         Inventory profile = Bukkit.createInventory(null, 54, "§eVotre Profil");
 
         ItemStack head = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta headMeta = (SkullMeta) head.getItemMeta();
         headMeta.setOwner(p.getName());
-        headMeta.setDisplayName("§eVous avez :§a" + vaultUnplifed.getBalance(p) + "$");
+        headMeta.setDisplayName("§eVous avez :§a");
         head.setItemMeta(headMeta);
         profile.setItem(0, head);
 
