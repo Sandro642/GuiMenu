@@ -25,7 +25,7 @@ public class Main extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new LoaderEvent(), this);
         getCommand("guibypass").setExecutor(new Guicmd());
-
+        getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
     }
 
     public static Main getInstance() {

@@ -18,6 +18,8 @@ import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
+import java.io.IOException;
+
 import static org.bukkit.Bukkit.getServer;
 
 public class LoaderEvent implements Listener {
@@ -138,10 +140,9 @@ public class LoaderEvent implements Listener {
     }
 
     @EventHandler
-    public void inventoryClick(InventoryClickEvent e) {
+    public void inventoryClick(InventoryClickEvent e) throws IOException {
         Player p = (Player) e.getWhoClicked();
         ItemStack it = e.getCurrentItem();
-
         e.setCancelled(true);
 
         if (it == null) return;
