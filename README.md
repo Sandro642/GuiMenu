@@ -1,3 +1,4 @@
 # GuiMenu
-Menugui for server Minecraft for Armania.
-Update for tonight
+Menugui for Armania,
+
+Don't copyright
