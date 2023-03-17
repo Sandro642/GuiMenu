@@ -1,6 +1,7 @@
 package fr.sandro642.github.loader;
 
-import fr.sandro642.github.utils.Vault;
+import fr.sandro642.github.Main;
+import me.itswagpvp.economyplus.vault.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -8,11 +9,31 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.plugin.Plugin;
 
 import java.util.Arrays;
 import java.util.UUID;
 
 public class GuiLoader {
+
+    public static Double BalanceDynamic(Player p) {
+        Economy eco = new Economy(p);
+        Bukkit.getScheduler().runTaskTimerAsynchronously((Plugin) Main.getInstance(), new Runnable() {
+            int timer = 0;
+            @Override
+            public void run() {
+                if (this.timer == 4) {
+                    this.timer = 0;
+                }
+                switch (this.timer) {
+                    case 0:
+                        Double BalanceDynamic = eco.getBalance();
+                        break;
+                }
+            }
+        }, 0, 60L);
+        return eco.getBalance();
+    }
 
     public static void joinLoader(Player p) {
 
@@ -66,28 +87,28 @@ public class GuiLoader {
         skywarsm.setDisplayName("§eSkyWars §2(Clique gauche)");
         skywarsm.setLore(Arrays.asList("§eRejoindre le serveur SkyWars avec clique gauche."));
         skywars.setItemMeta(skywarsm);
-        compass.setItem(0, skywars);
+        compass.setItem(21, skywars);
 
         ItemStack lg = new ItemStack(Material.REDSTONE);
         ItemMeta lgm = lg.getItemMeta();
         lgm.setDisplayName("§eLoup-Garou §2(Clique gauche)");
         lgm.setLore(Arrays.asList("§eRejoindre le serveur Loup-Garou avec clique gauche."));
         lg.setItemMeta(lgm);
-        compass.setItem(1, lg);
+        compass.setItem(22, lg);
 
         ItemStack dac = new ItemStack(Material.BARRIER);
         ItemMeta dacm = dac.getItemMeta();
         dacm.setDisplayName("§eDé à coudre §2(Clique gauche)");
         dacm.setLore(Arrays.asList("§eRejoindre le serveur Dé à coudre avec clique gauche."));
         dac.setItemMeta(dacm);
-        compass.setItem(2, dac);
+        compass.setItem(23, dac);
 
         ItemStack hg = new ItemStack(Material.DIAMOND_SWORD);
         ItemMeta hgm = hg.getItemMeta();
         hgm.setDisplayName("§eHungerGames §2(Clique gauche)");
         hgm.setLore(Arrays.asList("§eRejoindre le serveur HungerGames avec clique gauche."));
         hg.setItemMeta(hgm);
-        compass.setItem(3, hg);
+        compass.setItem(24, hg);
 
 
 
@@ -104,14 +125,15 @@ public class GuiLoader {
         p.openInventory(cosmetics);
     }
 
-    public static void profile(Player p) {
-        Vault vault = new Vault();
+    public static  void profile(Player p) {
+
+
         Inventory profile = Bukkit.createInventory(null, 54, "§eVotre Profil");
 
         ItemStack head = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta headMeta = (SkullMeta) head.getItemMeta();
         headMeta.setOwner(p.getName());
-        headMeta.setDisplayName("§eVous avez : §a" + vault.getBalance(p) + "$");
+        headMeta.setDisplayName("§eVous avez : §a" + BalanceDynamic(p) + "$");
         head.setItemMeta(headMeta);
         profile.setItem(22, head);
 

@@ -1,7 +1,7 @@
-fr\sandro642\github\utils\Vault.class
 fr\sandro642\github\Main.class
 fr\sandro642\github\utils\PlayerManager.class
 fr\sandro642\github\utils\BungeeConnect.class
 fr\sandro642\github\events\LoaderEvent.class
 fr\sandro642\github\commands\Guicmd.class
+fr\sandro642\github\loader\GuiLoader$1.class
 fr\sandro642\github\loader\GuiLoader.class
