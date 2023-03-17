@@ -70,7 +70,7 @@ public class GuiLoader {
 
         ItemStack vanish = new ItemStack(Material.GRAY_DYE);
         ItemMeta vanishm = vanish.getItemMeta();
-        vanishm.setDisplayName("§eCacher les joueurs §2(Clique droit)");
+        vanishm.setDisplayName("§eVanish §2(Clique droit)");
         vanishm.setLore(Arrays.asList("§eCacher les joueurs en faisant clique droit."));
         vanish.setItemMeta(vanishm);
         p.getInventory().setItem(7, vanish);
@@ -87,14 +87,14 @@ public class GuiLoader {
         skywarsm.setDisplayName("§eSkyWars §2(Clique gauche)");
         skywarsm.setLore(Arrays.asList("§eRejoindre le serveur SkyWars avec clique gauche."));
         skywars.setItemMeta(skywarsm);
-        compass.setItem(21, skywars);
+        compass.setItem(20, skywars);
 
         ItemStack lg = new ItemStack(Material.REDSTONE);
         ItemMeta lgm = lg.getItemMeta();
         lgm.setDisplayName("§eLoup-Garou §2(Clique gauche)");
         lgm.setLore(Arrays.asList("§eRejoindre le serveur Loup-Garou avec clique gauche."));
         lg.setItemMeta(lgm);
-        compass.setItem(22, lg);
+        compass.setItem(21, lg);
 
         ItemStack dac = new ItemStack(Material.BARRIER);
         ItemMeta dacm = dac.getItemMeta();

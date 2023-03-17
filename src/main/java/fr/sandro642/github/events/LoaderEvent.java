@@ -5,8 +5,11 @@ import com.google.common.io.ByteStreams;
 import fr.sandro642.github.Main;
 import fr.sandro642.github.loader.GuiLoader;
 import fr.sandro642.github.utils.BungeeConnect;
+import fr.sandro642.github.utils.ErrorManager;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -19,10 +22,14 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.bukkit.Bukkit.getServer;
 
 public class LoaderEvent implements Listener {
+
+    private Set<Player> vanishedPlayers = new HashSet<>();
 
     private boolean playersHidden = false;
 
@@ -137,7 +144,31 @@ public class LoaderEvent implements Listener {
                 GuiLoader.profile(p);
             }
         }
+
+
+        // Vanish player
+
+        // Vérifiez que l'objet utilisé est celui que vous souhaitez utiliser pour faire disparaître les joueurs
+        if (it.getType() == Material.GRAY_DYE && it.getItemMeta().getDisplayName().equals("§eVanish §2(Clique droit)")) {
+            // Faites disparaître ou réapparaître tous les joueurs à proximité de l'objet
+            Location location = p.getLocation();
+            for (Entity entity : location.getChunk().getEntities()) {
+                if (entity instanceof Player) {
+                    Player target = (Player) entity;
+                    if (vanishedPlayers.contains(target)) {
+                        target.showPlayer(p);
+                        vanishedPlayers.remove(target);
+                        p.sendMessage("§aVous avez réapparu aux yeux de tout le monde!");
+                    } else {
+                        target.hidePlayer(p);
+                        vanishedPlayers.add(target);
+                        p.sendMessage("§cVous avez disparu aux yeux de tout le monde!");
+                    }
+                }
+            }
+        }
     }
+
 
     @EventHandler
     public void inventoryClick(InventoryClickEvent e) throws IOException {
@@ -151,21 +182,43 @@ public class LoaderEvent implements Listener {
             p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
             p.closeInventory();
             BungeeConnect.connect(p, "sw1");
-        }
+        } else
         if ( it.getType() == Material.REDSTONE && it.getItemMeta().getDisplayName().equals("§eLoup-Garou §2(Clique gauche)")) {
             p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
             p.closeInventory();
             BungeeConnect.connect(p, "lg1");
-        }
+        } else
         if (it.getType() == Material.BARRIER && it.getItemMeta().getDisplayName().equals("§eDé à coudre §2(Clique gauche)")) {
             p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
             p.closeInventory();
             BungeeConnect.connect(p, "dac1");
-        }
+        } else
         if (it.getType() == Material.DIAMOND_SWORD && it.getItemMeta().getDisplayName().equals("§eHungerGames §2(Clique gauche)")) {
             p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
             p.closeInventory();
             BungeeConnect.connect(p, "hg1");
+        } else
+
+
+
+
+        // Lobby selector
+
+        if (it.getType() == Material.WHITE_WOOL && it.getItemMeta().getDisplayName().equals("§eLobby 1 §2(Clique gauche)")) {
+            p.playSound(p.getLocation(), Sound.ENTITY_PIGLIN_JEALOUS, 1, 1);
+            ErrorManager.ErrorLobbys(p);
+        } else
+        if (it.getType() == Material.WHITE_WOOL && it.getItemMeta().getDisplayName().equals("§eLobby 2 §2(Clique gauche)")) {
+            p.playSound(p.getLocation(), Sound.ENTITY_PIGLIN_JEALOUS, 1, 1);
+            ErrorManager.ErrorLobbys(p);
+        } else
+        if (it.getType() == Material.WHITE_WOOL && it.getItemMeta().getDisplayName().equals("§eLobby 3 §2(Clique gauche)")) {
+            p.playSound(p.getLocation(), Sound.ENTITY_PIGLIN_JEALOUS, 1, 1);
+            ErrorManager.ErrorLobbys(p);
+        } else
+        if (it.getType() == Material.WHITE_WOOL && it.getItemMeta().getDisplayName().equals("§eLobby 4 §2(Clique gauche)")) {
+            p.playSound(p.getLocation(), Sound.ENTITY_PIGLIN_JEALOUS, 1, 1);
+            ErrorManager.ErrorLobbys(p);
         }
     }
 
