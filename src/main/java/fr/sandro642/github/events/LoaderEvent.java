@@ -157,11 +157,11 @@ public class LoaderEvent implements Listener {
                     Player target = (Player) entity;
                     if (vanishedPlayers.contains(target)) {
                         target.showPlayer(p);
-                        vanishedPlayers.remove(target);
+                        vanishedPlayers.add(target);
                         p.sendMessage("§aVous avez réapparu aux yeux de tout le monde!");
                     } else {
                         target.hidePlayer(p);
-                        vanishedPlayers.add(target);
+                        vanishedPlayers.remove(target);
                         p.sendMessage("§cVous avez disparu aux yeux de tout le monde!");
                     }
                 }
@@ -181,22 +181,26 @@ public class LoaderEvent implements Listener {
         if (it.getType() == Material.WHITE_WOOL && it.getItemMeta().getDisplayName().equals("§eSkyWars §2(Clique gauche")) {
             p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
             p.closeInventory();
-            BungeeConnect.connect(p, "sw1");
+            GuiLoader.skywarsloader(p);
+           // BungeeConnect.connect(p, "sw1");
         } else
         if ( it.getType() == Material.REDSTONE && it.getItemMeta().getDisplayName().equals("§eLoup-Garou §2(Clique gauche)")) {
             p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
             p.closeInventory();
-            BungeeConnect.connect(p, "lg1");
+            GuiLoader.loupgarouloader(p);
+           // BungeeConnect.connect(p, "lg1");
         } else
         if (it.getType() == Material.BARRIER && it.getItemMeta().getDisplayName().equals("§eDé à coudre §2(Clique gauche)")) {
             p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
             p.closeInventory();
-            BungeeConnect.connect(p, "dac1");
+            GuiLoader.deacoudreloader(p);
+           // BungeeConnect.connect(p, "dac1");
         } else
         if (it.getType() == Material.DIAMOND_SWORD && it.getItemMeta().getDisplayName().equals("§eHungerGames §2(Clique gauche)")) {
             p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
             p.closeInventory();
-            BungeeConnect.connect(p, "hg1");
+            GuiLoader.hungergamesloader(p);
+           // BungeeConnect.connect(p, "hg1");
         } else
 
 

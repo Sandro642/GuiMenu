@@ -20,6 +20,7 @@ public class GuiLoader {
         Economy eco = new Economy(p);
         Bukkit.getScheduler().runTaskTimerAsynchronously((Plugin) Main.getInstance(), new Runnable() {
             int timer = 0;
+
             @Override
             public void run() {
                 if (this.timer == 4) {
@@ -111,9 +112,6 @@ public class GuiLoader {
         compass.setItem(24, hg);
 
 
-
-
-
         p.updateInventory();
         p.openInventory(compass);
     }
@@ -125,7 +123,7 @@ public class GuiLoader {
         p.openInventory(cosmetics);
     }
 
-    public static  void profile(Player p) {
+    public static void profile(Player p) {
 
 
         Inventory profile = Bukkit.createInventory(null, 54, "§eVotre Profil");
@@ -181,5 +179,144 @@ public class GuiLoader {
 
         p.updateInventory();
         p.openInventory(lobbys);
+    }
+
+
+    /// Loader of gui for Little Games.
+
+    public static void skywarsloader(Player p) {
+        Inventory skywars = Bukkit.createInventory(null, 54, "§eSkyWars");
+
+        ItemStack skywars1 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta skywars1m = skywars1.getItemMeta();
+        skywars1m.setDisplayName("§eSkyWars 1 §2(Clique gauche)");
+        skywars1m.setLore(Arrays.asList("§eRejoindre le serveur SkyWars 1 avec clique gauche."));
+        skywars1.setItemMeta(skywars1m);
+        skywars.setItem(0, skywars1);
+
+        ItemStack skywars2 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta skywars2m = skywars2.getItemMeta();
+        skywars2m.setDisplayName("§eSkyWars 2 §2(Clique gauche)");
+        skywars2m.setLore(Arrays.asList("§eRejoindre le serveur SkyWars 2 avec clique gauche."));
+        skywars2.setItemMeta(skywars2m);
+        skywars.setItem(1, skywars2);
+
+        ItemStack skywars3 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta skywars3m = skywars3.getItemMeta();
+        skywars3m.setDisplayName("§eSkyWars 3 §2(Clique gauche)");
+        skywars3m.setLore(Arrays.asList("§eRejoindre le serveur SkyWars 3 avec clique gauche."));
+        skywars3.setItemMeta(skywars3m);
+        skywars.setItem(2, skywars3);
+
+        ItemStack skywars4 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta skywars4m = skywars4.getItemMeta();
+        skywars4m.setDisplayName("§eSkyWars 4 §2(Clique gauche)");
+        skywars4m.setLore(Arrays.asList("§eRejoindre le serveur SkyWars 4 avec clique gauche."));
+        skywars4.setItemMeta(skywars4m);
+        skywars.setItem(3, skywars4);
+
+        p.openInventory(skywars);
+    }
+
+    public static void hungergamesloader(Player p) {
+        Inventory hungergames = Bukkit.createInventory(null, 54, "§eHungerGames");
+
+        ItemStack hungergames1 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta hungergames1m = hungergames1.getItemMeta();
+        hungergames1m.setDisplayName("§eHungerGames 1 §2(Clique gauche)");
+        hungergames1m.setLore(Arrays.asList("§eRejoindre le serveur HungerGames 1 avec clique gauche."));
+        hungergames1.setItemMeta(hungergames1m);
+        hungergames.setItem(0, hungergames1);
+
+        ItemStack hungergames2 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta hungergames2m = hungergames2.getItemMeta();
+        hungergames2m.setDisplayName("§eHungerGames 2 §2(Clique gauche)");
+        hungergames2m.setLore(Arrays.asList("§eRejoindre le serveur HungerGames 2 avec clique gauche."));
+        hungergames2.setItemMeta(hungergames2m);
+        hungergames.setItem(1, hungergames2);
+
+        ItemStack hungergames3 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta hungergames3m = hungergames3.getItemMeta();
+        hungergames3m.setDisplayName("§eHungerGames 3 §2(Clique gauche)");
+        hungergames3m.setLore(Arrays.asList("§eRejoindre le serveur HungerGames 3 avec clique gauche."));
+        hungergames3.setItemMeta(hungergames3m);
+        hungergames.setItem(2, hungergames3);
+
+        ItemStack hungergames4 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta hungergames4m = hungergames4.getItemMeta();
+        hungergames4m.setDisplayName("§eHungerGames 4 §2(Clique gauche)");
+        hungergames4m.setLore(Arrays.asList("§eRejoindre le serveur HungerGames 4 avec clique gauche."));
+        hungergames4.setItemMeta(hungergames4m);
+        hungergames.setItem(3, hungergames4);
+
+        p.openInventory(hungergames);
+    }
+
+    public static void loupgarouloader(Player p) {
+        Inventory loupgarou = Bukkit.createInventory(null, 54, "§eLoupGarou");
+
+        ItemStack loupgarou1 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta loupgarou1m = loupgarou1.getItemMeta();
+        loupgarou1m.setDisplayName("§eLoupGarou 1 §2(Clique gauche)");
+        loupgarou1m.setLore(Arrays.asList("§eRejoindre le serveur LoupGarou 1 avec clique gauche."));
+        loupgarou1.setItemMeta(loupgarou1m);
+        loupgarou.setItem(0, loupgarou1);
+
+        ItemStack loupgarou2 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta loupgarou2m = loupgarou2.getItemMeta();
+        loupgarou2m.setDisplayName("§eLoupGarou 2 §2(Clique gauche)");
+        loupgarou2m.setLore(Arrays.asList("§eRejoindre le serveur LoupGarou 2 avec clique gauche."));
+        loupgarou2.setItemMeta(loupgarou2m);
+        loupgarou.setItem(1, loupgarou2);
+
+        ItemStack loupgarou3 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta loupgarou3m = loupgarou3.getItemMeta();
+        loupgarou3m.setDisplayName("§eLoupGarou 3 §2(Clique gauche)");
+        loupgarou3m.setLore(Arrays.asList("§eRejoindre le serveur LoupGarou 3 avec clique gauche."));
+        loupgarou3.setItemMeta(loupgarou3m);
+        loupgarou.setItem(2, loupgarou3);
+
+        ItemStack loupgarou4 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta loupgarou4m = loupgarou4.getItemMeta();
+        loupgarou4m.setDisplayName("§eLoupGarou 4 §2(Clique gauche)");
+        loupgarou4m.setLore(Arrays.asList("§eRejoindre le serveur LoupGarou 4 avec clique gauche."));
+        loupgarou4.setItemMeta(loupgarou4m);
+        loupgarou.setItem(3, loupgarou4);
+
+        p.openInventory(loupgarou);
+    }
+
+    public static void deacoudreloader(Player p) {
+        Inventory deacoudre = Bukkit.createInventory(null, 54, "§eDeACoudre");
+
+        ItemStack deacoudre1 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta deacoudre1m = deacoudre1.getItemMeta();
+        deacoudre1m.setDisplayName("§eDeACoudre 1 §2(Clique gauche)");
+        deacoudre1m.setLore(Arrays.asList("§eRejoindre le serveur DeACoudre 1 avec clique gauche."));
+        deacoudre1.setItemMeta(deacoudre1m);
+        deacoudre.setItem(0, deacoudre1);
+
+        ItemStack deacoudre2 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta deacoudre2m = deacoudre2.getItemMeta();
+        deacoudre2m.setDisplayName("§eDeACoudre 2 §2(Clique gauche)");
+        deacoudre2m.setLore(Arrays.asList("§eRejoindre le serveur DeACoudre 2 avec clique gauche."));
+        deacoudre2.setItemMeta(deacoudre2m);
+        deacoudre.setItem(1, deacoudre2);
+
+        ItemStack deacoudre3 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta deacoudre3m = deacoudre3.getItemMeta();
+        deacoudre3m.setDisplayName("§eDeACoudre 3 §2(Clique gauche)");
+        deacoudre3m.setLore(Arrays.asList("§eRejoindre le serveur DeACoudre 3 avec clique gauche."));
+        deacoudre3.setItemMeta(deacoudre3m);
+        deacoudre.setItem(2, deacoudre3);
+
+        ItemStack deacoudre4 = new ItemStack(Material.WHITE_WOOL);
+        ItemMeta deacoudre4m = deacoudre4.getItemMeta();
+        deacoudre4m.setDisplayName("§eDeACoudre 4 §2(Clique gauche)");
+        deacoudre4m.setLore(Arrays.asList("§eRejoindre le serveur DeACoudre 4 avec clique gauche."));
+        deacoudre4.setItemMeta(deacoudre4m);
+        deacoudre.setItem(3, deacoudre4);
+
+        p.openInventory(deacoudre);
     }
 }

@@ -1,6 +1,7 @@
 package fr.sandro642.github.commands;
 
 import fr.sandro642.github.Main;
+import fr.sandro642.github.loader.GuiLoader;
 import fr.sandro642.github.utils.PlayerManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -21,23 +22,16 @@ public class Guicmd implements CommandExecutor {
                     return false;
                 }
 
-                if (Main.getInstance().moderateurs.contains(player.getUniqueId())){
-                    PlayerManager pm = PlayerManager.getFromPlayer(player);
-
-                    Main.getInstance().moderateurs.remove(player.getUniqueId());
+                if (player.getInventory().isEmpty()) {
+                    player.sendMessage("§cVous avez désactivé le bypass du menu gui.");
+                    GuiLoader.joinLoader(player);
+                    return false;
+                } else if (!player.getInventory().isEmpty()) {
+                    player.sendMessage("§aVous avez activé le bypass du menu gui.");
                     player.getInventory().clear();
-                    player.sendMessage("§cVous n'êtes maintenant plus en mode moderation");
-                    pm.giveInventory();
-                    pm.destroy();
                     return false;
                 }
 
-                PlayerManager pm = new PlayerManager(player);
-                pm.init();
-
-                Main.getInstance().moderateurs.add(player.getUniqueId());
-                player.sendMessage("§cVous êtes à présent en mode modération");
-                pm.saveInventory();
             }
         }
         return false;
