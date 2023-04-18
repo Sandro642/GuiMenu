@@ -1,4 +1,3 @@
 # GuiMenu
-Menugui for Armania,
-
+Menugui for Armania
 Don't copyright
