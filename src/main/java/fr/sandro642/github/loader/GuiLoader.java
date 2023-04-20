@@ -11,6 +11,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.plugin.Plugin;
 
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.UUID;
 
@@ -122,7 +125,14 @@ public class GuiLoader {
         p.updateInventory();
         p.openInventory(cosmetics);
     }
-
+    public static void connect(Player p, String server) throws IOException {
+        p.sendMessage("§5§l* §dAttempting connection to §l" + server + "§d...");
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        DataOutputStream out2 = new DataOutputStream(out);
+        out2.writeUTF("Connect");
+        out2.writeUTF(server);
+        p.sendPluginMessage(Main.getInstance(), "BungeeCord", out.toByteArray());
+    }
     public static void profile(Player p) {
 
 
@@ -316,6 +326,8 @@ public class GuiLoader {
         deacoudre4m.setLore(Arrays.asList("§eRejoindre le serveur DeACoudre 4 avec clique gauche."));
         deacoudre4.setItemMeta(deacoudre4m);
         deacoudre.setItem(3, deacoudre4);
+
+
 
         p.openInventory(deacoudre);
     }
