@@ -1,3 +1,3 @@
 # GuiMenu
 Menugui for Armania
-Don't copyright
+Don't copyright please
